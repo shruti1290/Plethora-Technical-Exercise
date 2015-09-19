@@ -8,7 +8,9 @@ using namespace std;
 int main()
 {
 	
-
+	parsefile("Rectangle.json.txt");
+	
+	
 	_getch();
 }
 

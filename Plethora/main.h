@@ -1,4 +1,7 @@
 
+#define _CRT_SECURE_NO_WARNINGS
+
+
 #ifndef MAIN_H
 #define MAIN_H
 
@@ -10,5 +13,6 @@
 #include<string>
 #include<conio.h>
 #include<math.h>
+#include<fstream>
 
 #endif

@@ -27,55 +27,55 @@ int Vertex::setVertexpoints(Point P)
 	return 0;
 }
 
-long Edges::getEdge_id()
+long Edge::getEdge_id()
 {
 
 	return this->Edge_id;
 
 }
-int Edges::setEdge_id(long id)
+int Edge::setEdge_id(long id)
 {
 	this->Edge_id = id;
 	return 0;
 }
 
-std::string Edges::getEdge_type()
+std::string Edge::getEdge_type()
 {
 	return this->Edge_type;
 }
-int Edges::setEdge_type(std::string n)
+int Edge::setEdge_type(std::string n)
 {
 	this->Edge_type = n;
 	return 0;
 }
 
-long* Edges::getVertices_id()
+long* Edge::getVertices_id()
 {
 	return this->Vertices_id;
 }
-int Edges::setVertices_id(long V[2])
+int Edge::setVertices_id(long V[2])
 {
 	this->Vertices_id[0] = V[0];
 	this->Vertices_id[1] = V[1];
 	return 0;
 }
 
-int Edges::setCenter(Point P)
+int Edge::setCenter(Point P)
 {
 	this->Center = P;
 	return 0;
 }
-Point Edges::getCenter()
+Point Edge::getCenter()
 {
 	return this->Center;
 }
 
-long Edges::getEdge_clockwisefrom_id()
+long Edge::getEdge_clockwisefrom_id()
 {
 	return this->Edge_clockwisefrom_id;
 }
 
-int Edges::setEdge_clockwisefrom_id(long form)
+int Edge::setEdge_clockwisefrom_id(long form)
 {
 	this->Edge_clockwisefrom_id = form;
 	return 0;
