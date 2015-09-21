@@ -10,6 +10,7 @@ This file contains software for parsing the data, from json file
 
 int parsefile(char* filename);
 
+/*Marking delimator for saperating tokens in json file*/
 
 #define OPEN_BRACES	'{'
 #define CLOSE_BRACES '}'

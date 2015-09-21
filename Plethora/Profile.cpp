@@ -1,3 +1,5 @@
+/*This file contains the member functions for the memory profiles, to store and use data*/
+
 #include"Profile.h"
 #include"main.h"
 

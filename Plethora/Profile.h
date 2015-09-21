@@ -1,15 +1,4 @@
-/*
-Code for parsing the .json file and storing the information in classes
-It reads the file line by line and then stores the information in following hirearchy
-
-Edge
-Type of Curve  : [id]
-Vertices : [id]
-
-get vertices (id)
-get curve (id)
-
-*/
+/*This file contains is the memory profile to store the Edge and Vertex information*/
 
 #ifndef PROFILE_H
 #define PROFILE_H
@@ -35,6 +24,12 @@ public:
 	}
 };
 
+/*Following class stores Vertex data . It has three attributes:
+*  1. Vertex id
+*	2. Point
+
+	Functions are written to retrieve and set data.
+*/
 class Vertex
 {
 private:
@@ -49,7 +44,14 @@ public:
 	Point getVertexpoints();
 	int setVertexpoints(Point);
 };
-
+/*
+Following Class stores Edge data :
+*	1. Edge id
+*	2. Edge type
+*	3. Vertices id : array of two ids
+*	4. Center : stores center for circular arc data
+*	5. Edge length : to be calculated later, when estimating cost. 
+*/
 class Edge
 {
 private: 
@@ -86,6 +88,8 @@ public:
 	int setEdge_length(double);
 	double getEdge_length();
 };
+
+/*Extern Vector for Edge and Vertex objects are defined for storing parsed file data in the data structure*/
 
 extern std::vector<Edge> edges_data;
 extern std::vector<Vertex> vertices_data;

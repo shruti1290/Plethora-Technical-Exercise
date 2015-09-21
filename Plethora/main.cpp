@@ -1,3 +1,9 @@
+/* This file calculates the Quotation information for the parsed file*/
+/*It takes input .txt file (.json) file format, then from the data stored in the data structure, Cost is estimated*/
+/*Cost Estimation is done based on the given equation, proportional to area and the perimeter of the stock and the nature of the cut*/
+/*For Circular arc , first the type of cut is identified by taking cross product of the vertices. */
+
+
 #include"main.h"
 #include"Parser.h"
 #include"Profile.h"
@@ -12,13 +18,15 @@ double calculate_angle(Point, Point, Point);
 int main()
 {
 	
-	parsefile("ExtrudeCircularArc.json.txt");
+	//parsefile("Rectangle.json.txt");
+
 	//parsefile("CutCircularArc.json.txt");
 	
-	//parsefile("Rectangle.json.txt");
+	//parsefile("ExtrudeCircularArc.json.txt");
 	
-	
+		
 	printf("%.2lf dollars", calculate_quote());
+	
 	_getch();
 	return 0;
 }
@@ -93,6 +101,9 @@ double calculate_quote()
 				//cout << "cross product data  " << cross_product(b, c) << endl;
 			}
 
+			/*If the cross product between vector Clockwise From and the other end of the vertex is negative , it is a cut*/
+			/*Else it is an extrusion and the area of stock information would depend on that*/
+			
 			if (cp_data > 0)
 			{
 				length_change = R;
@@ -143,11 +154,16 @@ double calculate_quote()
 */
 	return total_cost;
 }
+/* Cross product function, to be used to determine whether it's an extrusion or cut*/
 
 int cross_product(Point a, Point b)
 {
 	return int(((a.X*b.Y) - (b.X*a.Y)));
 }
+
+
+/*Following function is witten to fetch Vertex co-ordinate data for corrosponding vertex id*/
+/*This function returns Point data*/
 
 Point fetch_pointFromid(long id)
 {
@@ -162,6 +178,7 @@ Point fetch_pointFromid(long id)
 
 	//return x;
 }
+/* Following function calculates Cartesian distance between two input points*/
 
 double calculate_dist(Point x, Point y)
 {
@@ -173,8 +190,6 @@ This function calculates the angle between two vectors represented by three poin
 for points a,b,c  if you want to find angle between vectors ac and bc (angle at c), then calculate angle takes
 
 input as calculate_angle(a,b,c)
-
-
 
 */
 double calculate_angle(Point a, Point b, Point c)
@@ -193,41 +208,3 @@ double calculate_angle(Point a, Point b, Point c)
 	double theta = acos(((vector1.X * vector2.X) + (vector1.Y*vector2.Y)) / (vector1_mag * vector2_mag));
 	return theta;
 }
-/*Edges E;
-	Vertex V;
-	long vi[2] = { 122342, 233434 };
-	Point C;
-	C.X = 0.0; C.Y = 3.0;
-
-	E.setEdge_id(122340);
-	
-	E.setEdge_type("Line_segment");
-	
-	E.setVertices_id(vi);
-	
-	E.setCenter(C);
-
-	E.setEdge_clockwisefrom_id(122334);
-
-	cout << E.getEdge_id()<<endl;
-	cout << E.getEdge_type() << endl;
-	cout << E.getVertices_id()[0] << '\t' << E.getVertices_id()[1];
-	cout << E.getCenter().X << E.getCenter().Y<<endl;
-	cout << E.getEdge_clockwisefrom_id() << endl;
-
-	V.setVertex_id(123344);
-	V.setVertexpoints(C);
-
-	cout << "Vertex parameters:" << endl;
-	cout << V.getVertex_id() << endl;
-	cout << V.getVertexpoints().X << '\t' << V.getVertexpoints().Y;
-	*/
-
-/*Point x(2.0, 0.0), y(2.0, 1.0);
-
-cout << endl;
-
-cout <<"x X y is :"<<cross_product(x, y)<<endl;
-
-cout << "y X x is :"<<cross_product(y, x) << endl;
-*/

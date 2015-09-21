@@ -1,18 +1,31 @@
+/*
+* Code for parsing the .json.txt file and storing the information in classes
+* It reads the file line by line and then stores the information in memory 
+* profile given in Profile.h
+
+* Uses get() and set() functions to store data in vector for each edge and vector 
+*/
+
+
 #include"Parser.h"
 #include"main.h"
 #include"Profile.h"
 #include<vector>
 
- std::vector<Edge> edges_data;
- std::vector<Vertex> vertices_data;
 
 using namespace std;
-//using namespace string;
+
+/*following are the vectors where data will be stored. They are extern vectors*/
+
+std::vector<Edge> edges_data;
+std::vector<Vertex> vertices_data;
+
+/*Temporary objects to store in the vector*/
 Edge temp_data;
 Vertex temp_vert;
 
 /*
-This function takes the input file given and reads it line by line
+This function takes the input file given at main and reads it line by line
 for each line the program will saperate and store data in it's respective data structure
 */
 int parsefile(char* filename)
@@ -39,23 +52,7 @@ int parsefile(char* filename)
 
 			first_element = strtok(line, " :\"{}[],");
 
-			//token[0] = strtok(line, " :\"{}[],");
-			/*
-			while (token[n])
-			{
-			cout << token[n] << '\t';
-			n++;
-			token[n] = strtok(0, " :\"{}[],");	//subsequent tokens
-
-
-			}
-
-			cout << endl;
-
-			*/
-
-			/*Starting here will read each line of the json file and store it in the profile*/
-			/*Following snippet for storing information in edge class*/
+			/*starting here checking for whether the next set of information if for edges or vertices*/
 
 			if (first_element != NULL)
 			{
@@ -72,7 +69,7 @@ int parsefile(char* filename)
 					else if (std::strcmp(token[0], "}") == 0)
 						brace_count--;
 						
-	/*running the loop untill all the edge information is obtained , detected by brace coun of {}*/					
+			/*For subsequent edges, keeping brace count for identifying hierarchy*/					
 	
 					while (brace_count > 0)
 					{
@@ -205,7 +202,7 @@ int parsefile(char* filename)
 					
 				}
 
-				/*Following snippet for storing information in edge class*/
+				/*Following snippet for storing information in Vertex class*/
 
 				else if (std::strcmp(first_element, "Vertices") == 0)
 				{
@@ -313,33 +310,3 @@ int parsefile(char* filename)
 }
 
 
-/*
-char *rc = "";
-std::string sample;
-
-fscanf(inputfile, "%s", rc);
-std::cout << rc;
-
-std::cout << sample;
-
-fscanf(inputfile, "%c", &sample);
-std::cout << sample;
-
-fscanf(inputfile, "%c", &sample);
-std::cout << sample;*/
-
-/*inputfile.getline(line, 50, '\n');
-token[0] = strtok(line, " :\"{}[],");
-int brace_count = 0;								//add 1 for opening brace and subtract 1 for closing
-int n = 0;
-
-while (token[n])
-{
-cout << token[n] << '\t';
-n++;
-token[n] = strtok(0, " :\"{}[],");	//subsequent tokens
-
-
-}
-cout << endl;
-}*/
