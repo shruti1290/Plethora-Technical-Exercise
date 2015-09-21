@@ -82,3 +82,13 @@ int Edge::setEdge_clockwisefrom_id(long form)
 }
 
 
+int Edge::setEdge_length(double e)
+{
+	this->Edge_length = e;
+	return 0;
+}
+
+double Edge::getEdge_length()
+{
+	return this->Edge_length;
+}

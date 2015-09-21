@@ -22,6 +22,17 @@ public:
 
 	double X;
 	double Y;
+
+	Point(double a, double b)
+	{
+		X = a;
+		Y = b;
+	}
+
+	Point()
+	{
+		;
+	}
 };
 
 class Vertex
@@ -53,6 +64,8 @@ private:
 
 	long Edge_clockwisefrom_id;
 
+	double Edge_length;
+
 public:
 
 	long getEdge_id();
@@ -70,6 +83,11 @@ public:
 	long getEdge_clockwisefrom_id();
 	int setEdge_clockwisefrom_id(long);
 
+	int setEdge_length(double);
+	double getEdge_length();
 };
+
+extern std::vector<Edge> edges_data;
+extern std::vector<Vertex> vertices_data;
 
 #endif
