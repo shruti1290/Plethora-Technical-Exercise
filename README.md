@@ -19,3 +19,7 @@ Class Vertex has following attributes
 
 Main.cpp has function compute_finalcost(), which Computes the quotation , based on Machine cost and Material cost. 
 Material cost is proportional to area of stock and Machine cost to the time spent on the machine. 
+
+Possible Improvements:
+
+The code can be made more generic , for more versatile geometric features, multiple sided polygons and curves.
